@@ -1,0 +1,34 @@
+sequenceDiagram
+    Actor Hacker
+    Participant hacker_control_center
+    Hacker->>hacker_control_center: access bots
+    hacker_control_center->>bots: launches attack
+    Participant bots
+    bots->>internet: asks access
+    Participant internet
+    internet->>bots: 
+    bots->>user_firewall: 
+    Participant user_firewall
+    alt may pass
+        user_firewall-->bots: unsafe
+    else may not pass
+        participant user_pc
+        user_pc->>user_firewall: safe
+        alt may pass
+            user_firewall-->bots: unsafe
+        else may not pass
+        user_pc--> user_firewall: denied
+         Note over Hacker,hacker_control_center: A hacker uses access point<br/>to issue command to bots
+         note over bots,internet: 100s of bots are used to attack a target
+         note over user_firewall,user_pc: the fire wall will fight off bots,but<br/>the bombardment will keep user from gaining access
+        end
+    end
+
+#Documentation
+
+##1. * The hacker starts the attack. A hacker can be motivate for numerous reasons such as payment from a third party, to make a statement, or to demand a rasom.
+##2. * The control center is where a hacker launches commands from and houses the resources needed to carry out the attack. 
+##3. * Bots are pcs under the hackers control. A personal pc could used as bot with out the owner ever knowing.
+##4. * The internet is used by bots to flood the target with traffic.
+##5. * The firewall filters traffic, limits connections, and packet inspection.
+##6. * User and or business pcs can be denied access if a botnet overwhelms a vulnerablity and cause it exhausts its resources.  
