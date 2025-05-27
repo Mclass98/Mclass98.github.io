@@ -1,4 +1,4 @@
-'''mermaid
+```mermaid
 sequenceDiagram
     Actor Hacker
     Participant hacker_control_center
